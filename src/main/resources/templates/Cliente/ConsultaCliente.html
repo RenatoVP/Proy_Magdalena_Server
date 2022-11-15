@@ -61,15 +61,8 @@
 					
 					
 					</td>
-					<td>
-					 <form action="/Cliente/Eliminar" method="post">
-							<input type="hidden" name="id" th:value="${p.id}"/>
-							<button type="submit" class="btn btn-danger">Eliminar<i
-								class="fa-solid fa-trash"></i></button>
-						</form>
-					
-					
-					</td>
+					<td><a class="btn btn-danger" th:href="@{/Cliente/Eliminar/} + ${p.id}">Eliminar<i
+								class="fa-solid fa-trash"></i></a></td>
 					
 				
 				</tr>
