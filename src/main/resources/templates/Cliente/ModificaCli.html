@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<html xmls:th="http:///www.thymeleaf.org"
+          xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mantenimiento Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <style>
+    body{
+        background: #ffe259;
+        background: linear-gradient(to right, #ffa751,#ffe259);
+
+    }
+    .bag{
+        background-image: url('https://static.vecteezy.com/system/resources/previews/002/959/122/non_2x/cartoon-courier-brings-the-parcel-the-customer-receives-the-parcel-vector.jpg');
+        background-position: center center;
+   
+    }
+    #spann{
+	 color: red;
+}
+</style>
+  <body>
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="row align-items-stretch">
+            <div class="col bag d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+
+            </div>
+        
+        <div class="col bg-white p-4 rounded-end">
+            <div class="text-end">
+               
+
+            </div>
+            <h2 class="fw-bold text-center ">Datos del Cliente
+            <img src="https://i0.wp.com/wecourses.mx/wp-content/uploads/2017/06/alumno-366x3664.gif?fit=366%2C366&ssl=1" class="img-fluid "  width="100px" height="100px" ></h2>
+
+            <form th:action="@{/Cliente/guardar}" method="post" th:object="${cliente}">
+             <input type="hidden" name="id" th:field="*{id}"/>
+             <div class="mb-4">
+                <label for="razonSocial" class="form-label">Razon Social</label>
+                <input type="text"  class="form-control" name="razonSocial" th:field="*{razonsocial}"  />
+                 <span   id="spann" th :if="${#fields.hasErrors('razonsocial')}" th:errors="*{razonsocial}">Error Razon Social</span>
+             </div>
+             
+             <div class="mb-4">
+                <label for="dni" class="form-label">Dni</label>
+                <input type="text"  class="form-control" name="dni" th:field="*{dni}" />
+                      <span id="spann" th :if="${#fields.hasErrors('dni')}" th:errors="*{dni}">Error dni</span >
+             </div>
+             
+             <div class="mb-4">
+                <label for="telefono" class="form-label">Telefono</label>
+                <input type="number"  class="form-control" name="telefono" th:field="*{telefono}" value=" "/>
+                      <span id="spann" th :if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error  Telefono</span>
+             </div>
+             <div class="mb-4">
+                
+                <label for="direccion"  class="form-label">Direccion</label>
+                <input type="text"  class="form-control" name="direccion" th:field="*{direccion}"  />
+                      <span id="spann" th :if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Error Direccion</span>
+             </div>
+             <div class="d-grid">
+                <button type="submit"  class="btn btn-primary"  >Guardar<i class="fa-regular fa-floppy-disk"></i></button>
+                <br/>
+                <a th:href="@{/Cliente}" class="btn btn-danger">Volver<i class="fa-solid fa-backward"></i></a>
+            </div>
+            
+            </form>
+            
+        </div>
+    </div>
+    </div>
+    <script src="https://kit.fontawesome.com/9a82813591.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
