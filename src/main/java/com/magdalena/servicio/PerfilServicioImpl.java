@@ -13,9 +13,25 @@ public class PerfilServicioImpl implements PerfilServicio {
  
 	@Autowired
 	private PerfilRepositorio repositorio;
-	
 	@Override
-	public List<Perfil> listarTodosLosPerfiles() {
+	public List<Perfil> ListarTodoLosPerfiles() {
 		return repositorio.findAll();
+	}
+	@Override
+	public Perfil guardarPerfil(Perfil perfil) {
+		return repositorio.save(perfil);
+	}
+	@Override
+	public Perfil obtenerPerfilId(int id) {
+		return repositorio.findById( id).get();
+	}
+	@Override
+	public Perfil actualizarPerfil(Perfil perfil) {
+		return repositorio.save(perfil);
+	}
+	@Override
+	public void eliminarPerfil(int id) {
+		repositorio.deleteById(id);
+		
 	}
 }
