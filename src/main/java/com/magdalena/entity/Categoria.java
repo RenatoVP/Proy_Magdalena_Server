@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -23,6 +25,7 @@ public class Categoria {
 	@Column(length = 45, nullable = false)
 	private String descripcion;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "categoria")
 	private List<Producto> productos;
 }

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -28,7 +30,11 @@ public class Producto {
 	@Column(columnDefinition = "int default 0")
 	private int cantidad;
 	
+	@Column(name = "idcategoria")
+	private Long idcategoria;
+	
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "idcategoria")
+	@JoinColumn(name = "idcategoria", insertable = false, updatable = false)
 	private Categoria categoria;
 }
