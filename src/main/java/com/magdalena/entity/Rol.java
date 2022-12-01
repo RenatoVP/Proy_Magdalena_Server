@@ -1,4 +1,4 @@
-package com.magdalena.entidad;
+package com.magdalena.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_perfil")
-public class Perfil {
+@Table(name = "tb_rol")
+public class Rol {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,11 @@ public class Perfil {
 	@Column(name = "descripcion")
 	private String nombre;
 
-	public Perfil() {
+	public Rol() {
 
 	}
 
-	public Perfil(int id, String nombre) {
-		super();
+	public Rol(int id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 	}
@@ -46,7 +45,7 @@ public class Perfil {
 
 	@Override
 	public String toString() {
-		return "Alumnos [id=" + id + ", nombre=" + nombre + "]";
+		return "Rol [id=" + id + ", nombre=" + nombre + "]";
 	}
 
 }

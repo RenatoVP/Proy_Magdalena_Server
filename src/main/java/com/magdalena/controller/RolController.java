@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.magdalena.entidad.Perfil;
-import com.magdalena.servicio.PerfilServicio;
+import com.magdalena.entity.Rol;
+import com.magdalena.service.PerfilService;
 
 @Controller
-public class PerfilController {
+public class RolController {
 
 	@Autowired
-	private PerfilServicio servicio;  
+	private PerfilService servicio;  
 
 	@GetMapping({ "/perfil", "/" })
 	public String listarPerfiles(Model modelo) {
@@ -25,13 +25,13 @@ public class PerfilController {
 
 	@GetMapping("/perfil/nuevo")
 	public String mostrarFormularioDeRegistrtarPerfil(Model modelo) {
-		Perfil perfil = new Perfil();
+		Rol perfil = new Rol();
 		modelo.addAttribute("perfil", perfil);
 		return "crearperfil";
 	}
 
 	@PostMapping("/perfil")
-	public String guardarPerfil(@ModelAttribute("perfil") Perfil perfil) {
+	public String guardarPerfil(@ModelAttribute("perfil") Rol perfil) {
 		servicio.guardarPerfil(perfil);
 		return "redirect:/perfil";
 	}
@@ -43,9 +43,9 @@ public class PerfilController {
 	}
 
 	@PostMapping("/perfil/{id}")
-	public String actualizarPerfil(@PathVariable int id, @ModelAttribute("perfil") Perfil perfil,
+	public String actualizarPerfil(@PathVariable int id, @ModelAttribute("perfil") Rol perfil,
 			Model modelo) {
-		Perfil perfilExistente = servicio.obtenerPerfilId(id);
+		Rol perfilExistente = servicio.obtenerPerfilId(id);
 		perfilExistente.setId(id);
 		perfilExistente.setNombre(perfil.getNombre());
 		servicio.actualizarPerfil(perfilExistente);
