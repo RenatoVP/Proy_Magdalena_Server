@@ -1,4 +1,4 @@
-package com.magdalena.domain;
+package com.magdalena.entity;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

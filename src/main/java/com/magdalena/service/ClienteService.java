@@ -1,7 +1,7 @@
-package com.magdalena.Servicio;
+package com.magdalena.service;
 import java.util.List;
 
-import com.magdalena.domain.Cliente;
+import com.magdalena.entity.Cliente;
 
 public interface ClienteService {
 

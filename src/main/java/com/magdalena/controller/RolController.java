@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.magdalena.entity.Rol;
-import com.magdalena.service.PerfilService;
+import com.magdalena.service.RolService;
 
 @Controller
 public class RolController {
 
 	@Autowired
-	private PerfilService servicio;  
+	private RolService servicio;  
 
 	@GetMapping({ "/perfil", "/" })
 	public String listarPerfiles(Model modelo) {

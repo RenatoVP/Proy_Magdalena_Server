@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.magdalena.Dao.ClienteDAO;
-import com.magdalena.Servicio.ClienteService;
-import com.magdalena.domain.Cliente;
+import com.magdalena.entity.Cliente;
+import com.magdalena.repository.ClienteRepository;
+import com.magdalena.service.ClienteService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ClienteController {
 
 	 @Autowired
-	 private ClienteDAO clienteD;
+	 private ClienteRepository clienteD;
 	    
     @Autowired
  private ClienteService clienteService;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.magdalena.entity.Rol;
 
-public interface PerfilService {
+public interface RolService {
 	public List<Rol> ListarTodoLosPerfiles();
 
 	public Rol guardarPerfil(Rol perfil);

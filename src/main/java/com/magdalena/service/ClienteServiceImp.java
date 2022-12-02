@@ -1,4 +1,4 @@
-package com.magdalena.Servicio;
+package com.magdalena.service;
 
 import java.util.List;
 
@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.magdalena.Dao.ClienteDAO;
-import com.magdalena.domain.Cliente;
+import com.magdalena.entity.Cliente;
+import com.magdalena.repository.ClienteRepository;
 
 @Service
 public class ClienteServiceImp implements ClienteService {
 
 	  @Autowired
-	    private  ClienteDAO clienteDAO;
+	    private  ClienteRepository clienteDAO;
 	  
 	@Override
 	 @Transactional(readOnly = true)
