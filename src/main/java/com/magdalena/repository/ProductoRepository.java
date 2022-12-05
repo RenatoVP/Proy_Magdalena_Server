@@ -10,5 +10,5 @@ import com.magdalena.entity.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 	
-	List<Producto> findByDescripcionContaining(String infix);
+	List<Producto> findAllByDescripcionContaining(String infix);
 }

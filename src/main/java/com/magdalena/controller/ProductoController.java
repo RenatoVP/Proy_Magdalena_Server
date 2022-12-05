@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.magdalena.entity.Producto;
 import com.magdalena.service.ProductoService;
 
 @RestController
 @RequestMapping("/api/producto")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class ProductoController {
 	
 	@Autowired
@@ -28,6 +29,23 @@ public class ProductoController {
 	@GetMapping
 	public ResponseEntity<List<Producto>> listar() {
 		List<Producto> lista = productoService.findAll();
+		return new ResponseEntity<List<Producto>>(lista, HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Producto> listaProductoxNombre(@PathVariable Long id){
+		Producto bean = productoService.findById(id);
+		
+		if(bean == null) {
+			return new ResponseEntity<Producto>(bean, HttpStatus.BAD_REQUEST);
+		}
+		
+		return new ResponseEntity<Producto>(bean, HttpStatus.OK);
+	}
+	
+	@GetMapping("/consulta")
+	public ResponseEntity<List<Producto>> listaProductoxNombre(@RequestParam String descripcion){
+		List<Producto> lista = productoService.findAllByDescripcionContaining(descripcion);
 		return new ResponseEntity<List<Producto>>(lista, HttpStatus.OK);
 	}
 	

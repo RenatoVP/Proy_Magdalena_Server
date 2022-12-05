@@ -1,32 +1,24 @@
 package com.magdalena.utils;
 
+import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class JWTAuthResponseDTO {
 	private String tokenAcces;
-	private String tokenType;
+	private String tokenType = "Bearer";
+	private Long id;
+	private String username;
+	private List<String> roles;
 	
-	public JWTAuthResponseDTO(String tokenAcces) {
+	public JWTAuthResponseDTO(String tokenAcces, Long id, String username, List<String> roles) {
 		this.tokenAcces = tokenAcces;
-	}
-	
-	public JWTAuthResponseDTO(String tokenAcces, String tokenType) {
-		this.tokenAcces = tokenAcces;
-		this.tokenType = tokenType;
-	}
-
-	public String getTokenAcces() {
-		return tokenAcces;
-	}
-
-	public void setTokenAcces(String tokenAcces) {
-		this.tokenAcces = tokenAcces;
-	}
-
-	public String getTokenType() {
-		return tokenType;
-	}
-
-	public void setTokenType(String tokenType) {
-		this.tokenType = tokenType;
+		this.id = id;
+		this.username = username;
+		this.roles = roles;
 	}
 	
 }

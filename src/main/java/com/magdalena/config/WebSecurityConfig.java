@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.and()
 			.authorizeRequests()
 			// no requieren autenticacion
-			.antMatchers("/bcrypt/**", "/api/auth/**").permitAll()
+			.antMatchers("/bcrypt/**", "/api/**").permitAll()
 			.anyRequest().authenticated();
 		
 		http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

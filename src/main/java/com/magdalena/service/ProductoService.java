@@ -22,8 +22,8 @@ public class ProductoService {
 		return repository.findById(id).orElse(null);
 	}
 	
-	public List<Producto> findByDescripcionContaining(String infix){
-		return repository.findByDescripcionContaining(infix);
+	public List<Producto> findAllByDescripcionContaining(String infix){
+		return repository.findAllByDescripcionContaining(infix);
 	}
 	
 	public Producto save(Producto bean) {
